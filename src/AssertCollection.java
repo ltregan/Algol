@@ -5,20 +5,48 @@ import java.util.Iterator;
 /**
  * Created by ltregan on 06/11/2014.
  */
-public class AssertCollection<Object T> {
+public class AssertCollection {
 
 
-    public static void assertEquals( Object a ) {
+      private static  StringBuffer _toString(int a[]){
+          if( a == null)
+              return new StringBuffer("null");
+          StringBuffer result = new StringBuffer("[");
+          int n=0;
+          for( Object x : a){
+              if( n>0)
+                  result.append(",");
+              result.append( x );
+              n++;
+          }
+          result.append("]");
+          return result;
+      }
 
+
+    private static StringBuffer _toString(Collection a){
+        if( a == null)
+            return new StringBuffer("null");
+        StringBuffer result = new StringBuffer("[");
+        int n=0;
+        for( Object x : a){
+            if( n>0)
+                result.append(",");
+            result.append( x );
+            n++;
+        }
+        result.append("]");
+        return result;
     }
 
-        public static void assertEquals<T>( T a[], Collection b ){
+      public static  void assertEquals( int a[], Collection b ){
         if( a == null && b == null)
             return;
-        if( a != null && b == null)
-            throw new AssertionError("Expected:"+a+"\nActual:"+b);
-        if( a == null && b != null)
-            throw new AssertionError("Expected:"+a+"\nActual:"+b);
+        if( a != null ^ b != null)
+            throw new AssertionError("Expected:"+_toString(a)+"\nActual:"+_toString(b) );
+        if( a.length != b.size()  )
+            throw new AssertionError("Expected: size "+a.length +"\nActual: size "+ b.size()  );
+
 
         int n =-1;
         Iterator i = b.iterator();
@@ -28,7 +56,7 @@ public class AssertCollection<Object T> {
             if( x == null && b == null )
                 continue;
             if( ! x.equals(bi)){
-                throw new AssertionError("Expected:"+a+"\nActual:"+b);
+                throw new AssertionError("Expected:"+_toString(a) +"\nActual:"+_toString(b) );
             }
         }
 

@@ -1,6 +1,13 @@
 import junit.framework.Test;
 import org.junit.Assert;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by ltregan on 23/10/2014.
  */
@@ -8,46 +15,46 @@ public class PolishTests {
 
     @org.junit.Test
     public void testOne() {
-        Assert.assertEquals(1, Polish.calc(new String[]{"1"}));
-        Assert.assertEquals(3, Polish.calc(new String[]{"1", "2", "+"}));
-        Assert.assertEquals(9, Polish.calc(new String[]{"2", "1", "+", "3", "*"}));
-        Assert.assertEquals(6, Polish.calc(new String[]{"4", "13", "5", "/", "+"}));
+        assertEquals(1, Polish.calc(new String[]{"1"}));
+        assertEquals(3, Polish.calc(new String[]{"1", "2", "+"}));
+        assertEquals(9, Polish.calc(new String[]{"2", "1", "+", "3", "*"}));
+        assertEquals(6, Polish.calc(new String[]{"4", "13", "5", "/", "+"}));
 
     }
 
     @org.junit.Test
     public void testTwo() {
-        Assert.assertEquals(true, Palindrom.isPalindrom(""));
-        Assert.assertEquals(true, Palindrom.isPalindrom("A"));
-        Assert.assertEquals(true, Palindrom.isPalindrom("AA"));
-        Assert.assertEquals(false, Palindrom.isPalindrom("XABBAY"));
-        Assert.assertEquals(true, Palindrom.isPalindrom("XABBAX"));
-        Assert.assertEquals(true, Palindrom.isPalindrom("XABZBAX"));
-        Assert.assertEquals(false, Palindrom.isPalindrom("XABZYBAX"));
-        Assert.assertEquals(false, Palindrom.isPalindrom("ABB"));
+        assertEquals(true, Palindrom.isPalindrom(""));
+        assertEquals(true, Palindrom.isPalindrom("A"));
+        assertEquals(true, Palindrom.isPalindrom("AA"));
+        assertEquals(false, Palindrom.isPalindrom("XABBAY"));
+        assertEquals(true, Palindrom.isPalindrom("XABBAX"));
+        assertEquals(true, Palindrom.isPalindrom("XABZBAX"));
+        assertEquals(false, Palindrom.isPalindrom("XABZYBAX"));
+        assertEquals(false, Palindrom.isPalindrom("ABB"));
 
 
-        Assert.assertEquals("", Palindrom.longestPalindrome(""));
-        Assert.assertEquals("A", Palindrom.longestPalindrome("A"));
-        Assert.assertEquals("AA", Palindrom.longestPalindrome("AA"));
-        Assert.assertEquals("BB", Palindrom.longestPalindrome("ABB"));
-        Assert.assertEquals("ABBA", Palindrom.longestPalindrome("ABBA"));
-        Assert.assertEquals("ABBA", Palindrom.longestPalindrome("XABBAY"));
-        Assert.assertEquals("AYZZYA", Palindrom.longestPalindrome("XABBAYZZYA"));
+        assertEquals("", Palindrom.longestPalindrome(""));
+        assertEquals("A", Palindrom.longestPalindrome("A"));
+        assertEquals("AA", Palindrom.longestPalindrome("AA"));
+        assertEquals("BB", Palindrom.longestPalindrome("ABB"));
+        assertEquals("ABBA", Palindrom.longestPalindrome("ABBA"));
+        assertEquals("ABBA", Palindrom.longestPalindrome("XABBAY"));
+        assertEquals("AYZZYA", Palindrom.longestPalindrome("XABBAYZZYA"));
     }
 
 
     @org.junit.Test
     public void testDynamic() {
-        Assert.assertEquals("", PalindromDynamic.longestPalindrome(""));
-        Assert.assertEquals("A", PalindromDynamic.longestPalindrome("A"));
-        Assert.assertEquals("AA", PalindromDynamic.longestPalindrome("AA"));
-        Assert.assertEquals("BB", PalindromDynamic.longestPalindrome("ABB"));
-        Assert.assertEquals("ABBA", PalindromDynamic.longestPalindrome("ABBA"));
-        Assert.assertEquals("ABBA", PalindromDynamic.longestPalindrome("XABBAY"));
-        Assert.assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("XABBAYZZYA"));
-        Assert.assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        Assert.assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("321012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210123210012321001232100123210123"));
+        assertEquals("", PalindromDynamic.longestPalindrome(""));
+        assertEquals("A", PalindromDynamic.longestPalindrome("A"));
+        assertEquals("AA", PalindromDynamic.longestPalindrome("AA"));
+        assertEquals("BB", PalindromDynamic.longestPalindrome("ABB"));
+        assertEquals("ABBA", PalindromDynamic.longestPalindrome("ABBA"));
+        assertEquals("ABBA", PalindromDynamic.longestPalindrome("XABBAY"));
+        assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("XABBAYZZYA"));
+        assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        assertEquals("AYZZYA", PalindromDynamic.longestPalindrome("321012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210012321001232100123210123210012321001232100123210123"));
 
     }
 
@@ -57,15 +64,15 @@ public class PolishTests {
         java.util.Set<String> s = new java.util.HashSet<String>();
         s.add( "leet"); s.add("code");
 
-        Assert.assertEquals(true, WordBreak.wordBreak( "", s ));
-        Assert.assertEquals(true, WordBreak.wordBreak( "leet", s ));
-        Assert.assertEquals(true, WordBreak.wordBreak( "leetcode", s ));
-        Assert.assertEquals(false, WordBreak.wordBreak( "leetxcode", s ));
+        assertEquals(true, WordBreak.wordBreak("", s));
+        assertEquals(true, WordBreak.wordBreak("leet", s));
+        assertEquals(true, WordBreak.wordBreak("leetcode", s));
+        assertEquals(false, WordBreak.wordBreak("leetxcode", s));
 
         System.out.println("----------");
         s.clear();
         s.add("a"); s.add("abc"); s.add("b");s.add("cd");
-        Assert.assertEquals(true, WordBreak.wordBreak( "abcd", s ));
+        assertEquals(true, WordBreak.wordBreak("abcd", s));
 
 
         s.clear();
@@ -91,36 +98,49 @@ public class PolishTests {
 
     @org.junit.Test
     public void testMatches() {
-        Assert.assertEquals(true, Matches.isMatch( "", "" ));
-        Assert.assertEquals(true, Matches.isMatch( "bbbba", ".*a*a" ));
-        Assert.assertEquals(false, Matches.isMatch( "aaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*c" ));
-        Assert.assertEquals(true, Matches.isMatch( "a", "a" ));
-        Assert.assertEquals(false, Matches.isMatch( "a", "a." ));
-        Assert.assertEquals(true, Matches.isMatch( "a", "*" ));
-        Assert.assertEquals(true, Matches.isMatch( "", "b*" ));
-        Assert.assertEquals(true, Matches.isMatch( "", "*" ));
-        Assert.assertEquals(true, Matches.isMatch( "abbbbxxxxxxxxx", "*" ));
-        Assert.assertEquals(true, Matches.isMatch( "a", "a*" ));
-        Assert.assertEquals(true, Matches.isMatch( "ab", "ab*" ));
-        Assert.assertEquals(true, Matches.isMatch( "a", "ab*" ));
-        Assert.assertEquals(false, Matches.isMatch( "aaa", "aa" ));
-        Assert.assertEquals(true, Matches.isMatch( "aaa", ".*" ));
-        Assert.assertEquals(true, Matches.isMatch("aab", "c*a*b"));
-        Assert.assertEquals(true, Matches.isMatch("aab", "a*a*b"));
+        assertEquals(true, Matches.isMatch("", ""));
+        assertEquals(true, Matches.isMatch("bbbba", ".*a*a"));
+        assertEquals(false, Matches.isMatch("aaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*c"));
+        assertEquals(true, Matches.isMatch("a", "a"));
+        assertEquals(false, Matches.isMatch("a", "a."));
+        assertEquals(true, Matches.isMatch("a", "*"));
+        assertEquals(true, Matches.isMatch("", "b*"));
+        assertEquals(true, Matches.isMatch("", "*"));
+        assertEquals(true, Matches.isMatch("abbbbxxxxxxxxx", "*"));
+        assertEquals(true, Matches.isMatch("a", "a*"));
+        assertEquals(true, Matches.isMatch("ab", "ab*"));
+        assertEquals(true, Matches.isMatch("a", "ab*"));
+        assertEquals(false, Matches.isMatch("aaa", "aa"));
+        assertEquals(true, Matches.isMatch("aaa", ".*"));
+        assertEquals(true, Matches.isMatch("aab", "c*a*b"));
+        assertEquals(true, Matches.isMatch("aab", "a*a*b"));
 
     }
 
     @org.junit.Test
     public void testBinaryTreePreorderTraversal() {
+
         TreeNode n = new TreeNode(2);
         n.left = new TreeNode(1);
         n.right = new TreeNode(3);
 
-        AssertCollection.assertEquals( 1 );
+       AssertCollection.assertEquals(new int[0], BinaryTreePreorderTraversal.preorderTraversal(null));
+       AssertCollection.assertEquals(new int[]{2, 1, 3}, BinaryTreePreorderTraversal.preorderTraversal(n));
 
 
-        AssertCollection.assertEquals( new int[]{}, BinaryTreePreorderTraversal.preorderTraversal(null) );
-        AssertCollection.assertEquals( new int[]{1,2,3}, BinaryTreePreorderTraversal.preorderTraversal(n) );
+    }
+
+
+    @org.junit.Test
+    public void testFourSum() {
+
+
+        List<List<Integer>> x = FourSum.fourSum(new int[]{1, 0, -1, 0 ,-2, 2}, 0);
+        AssertCollection.assertEquals( new int[]{-1,0,0,-1}, x.get(0) );
+        AssertCollection.assertEquals( new int[]{-2,-1,1,2}, x.get(1) );
+        AssertCollection.assertEquals( new int[]{-2,0,0,2}, x.get(2) );
+
+
 
     }
 
